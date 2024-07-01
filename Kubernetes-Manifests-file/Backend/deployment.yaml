@@ -27,7 +27,7 @@ spec:
         imagePullPolicy: Always
         env:
           - name: MONGO_CONN_STR
-            value: mongodb://10.128.0.8:27017/todo?directConnection=true
+            value: mongodb://10.128.0.17:27017/todo?directConnection=true
           - name: MONGO_USERNAME
             valueFrom:
               secretKeyRef:
