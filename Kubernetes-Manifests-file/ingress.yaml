@@ -3,14 +3,13 @@ kind: Ingress
 metadata:
   name: mainlb
   namespace: three-tier
-  annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    #alb.ingress.kubernetes.io/scheme: internet-facing
+    #alb.ingress.kubernetes.io/target-type: ip
+    #alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
 spec:
-  ingressClassName: alb
+  #ingressClassName: alb
   rules:
-    - host: backend.amanpathakdevops.study
+    - host: 34.118.239.106
       http:
         paths:
           - path: /api

@@ -2,10 +2,10 @@ const Task = require("../models/task");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+/*router.get("/", async (req, res) => {
   res.sendFile(`${__dirname}/public/wizexercise.txt`);
 });
-
+*/
 router.post("/", async (req, res) => {
     try {
         const task = await new Task(req.body).save();
@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
     }
 });
 
-/*router.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const tasks = await Task.find();
         res.send(tasks);
@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
         res.send(error);
     }
 });
-*/
+
 router.put("/:id", async (req, res) => {
     try {
         const task = await Task.findOneAndUpdate(
