@@ -26,18 +26,18 @@ spec:
         image: aimecommeuncoqivrededocker/wizamole:backend
         imagePullPolicy: Always
         env:
-          - name: MONGO_CONN_STR
-            value: mongodb://10.128.0.17:27017/todo?directConnection=true
           - name: MONGO_USERNAME
             valueFrom:
-              secretKeyRef:
-                name: mongo-sec
-                key: username
+             secretKeyRef:
+              name: mongo-sec
+              key: username
           - name: MONGO_PASSWORD
             valueFrom:
-              secretKeyRef:
-                name: mongo-sec
-                key: password
+             secretKeyRef:
+               name: mongo-sec
+               key: password
+          - name: MONGO_CONN_STR
+            value: mongodb://$(MONGO_USERNAME):$(MONGO_PASSWORD)@10.128.0.17:27017/todo?directConnection=true
         ports:
         - containerPort: 3500
         livenessProbe: 
